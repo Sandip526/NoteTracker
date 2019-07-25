@@ -55,6 +55,12 @@ public class NoteActivity extends AppCompatActivity {
 
     private void saveNote(){
         Note note;
+
+        if (mEtTitle.getText().toString().trim().isEmpty()||
+                mEtContent.getText().toString().trim().isEmpty()){
+            Toast.makeText(this, "Please enter a title and content", Toast.LENGTH_SHORT).show();
+            return;
+        }
         if (mLoadedNote == null) {
             note = new Note(System.currentTimeMillis(), mEtTitle.getText().toString(),
                     mEtContent.getText().toString());
